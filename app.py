@@ -73,7 +73,9 @@ def question():
 def level():
     return "level" 
 
-
+@app.route('/debug')
+def debug():
+    return render_template("home.html")
 @socketio.on('connect')
 def connect(auth):
     print("client connected")

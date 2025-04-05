@@ -1,0 +1,12 @@
+<div className="input-container">
+    <input
+      type="text"
+      value=""
+      onChange="(e) => setMessage(e.target.value)"
+      placeholder="Ask me anything..."
+      className="input-field"
+    />
+    <button onClick="()=>{if (message.trim()) {onSend(message);setMessage(''); }}" className="send-button">
+      Send
+    </button>
+</div>
