@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("GEMNI_KEY")
+API_KEY = os.getenv("GEMINI_KEY")
 
 client = genai.Client(api_key=API_KEY)
 
