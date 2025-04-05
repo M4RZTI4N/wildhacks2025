@@ -3,3 +3,4 @@ google-genai
 dotenv
 flask
 flask_socketio
+gunicorn
