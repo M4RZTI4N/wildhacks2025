@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="user-input" class="text-input-class" id="user-input">
+    <button type="submit" id="submit-button">submit</button>
+
+    <p id="server-output"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+    var socket = io();
+    socket.on('connect', function() {
+        console.log("connected")
+    });
+
+    let submitButton = document.getElementById("submit-button");
+    submitButton.onclick= (e)=>{
+        socket.emit("user-input",{
+            data:document.getElementById("user-input").value,
+            id:socket.id
+        })
+        document.getElementById("user-input").value = ""
+    }
+
+    socket.on('server-response',(data)=>{
+        document.getElementById("server-output").innerText = document.getElementById("server-output").innerText + data;
+    })
+</script>
+</body>
+</html>
