@@ -2,7 +2,7 @@ from google import genai
 import os
 from dotenv import load_dotenv
 from flask import Flask, render_template
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, send, emit
 load_dotenv()
 
 API_KEY = os.getenv("GEMINI_KEY")
@@ -25,7 +25,7 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def home():
-    return "hello"
+    return render_template("hometest.html")
 
 @app.route("/chat")
 def chat():
@@ -39,6 +39,15 @@ def question():
 def level():
     return "level" 
 
+@socketio.on('connect')
+def connect(auth):
+    print("client connected")
+    print(auth)
+
+@socketio.on("user-input")
+def handle_user_input(data):
+    print(data)
+    emit("server-response", ("i recieved: " + data['data']))
 
 if __name__ == '__main__':
     socketio.run(app)
