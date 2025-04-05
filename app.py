@@ -73,6 +73,7 @@ def question():
 def level():
     return "level" 
 
+
 @socketio.on('connect')
 def connect(auth):
     print("client connected")
