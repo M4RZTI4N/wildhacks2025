@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <div className="app-container">
-      <Home />
+      {/* <Home /> */}
       <Input />
     </div>
   );

@@ -17,7 +17,7 @@ function Input({ onSend }) {
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type your message..."
+        placeholder="Ask me anything..."
         className="input-field"
       />
       <button onClick={handleSend} className="send-button">
