@@ -1,12 +1,56 @@
-<div className="input-container">
-    <input
-      type="text"
-      value=""
-      onChange="(e) => setMessage(e.target.value)"
-      placeholder="Ask me anything..."
-      className="input-field"
-    />
-    <button onClick="()=>{if (message.trim()) {onSend(message);setMessage(''); }}" className="send-button">
-      Send
-    </button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/input.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <!-- Header Greetings -->
+    <h1 class="title">Hello, there</h1>
+    <p class="subtitle">What do you want to learn?</p>
+    <!-- Suggestion list -->
+    <ul class="suggestion-list">
+      <li class="suggestion">
+        <h4 class="text">Help me throw the ultimate game night with the squad — all vibes, under $100.</h4>
+        <span class="icon material-symbols-rounded">draw</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">Drop some glow-up hacks to slay public speaking without the ick.</h4>
+        <span class="icon material-symbols-rounded">lightbulb</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">What’s poppin’ in web dev right now? Gimme the tea.</h4>
+        <span class="icon material-symbols-rounded">explore</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">Write me a JavaScript banger to add up all the numbers in an array — no cap.</h4>
+        <span class="icon material-symbols-rounded">code</span>
+      </li>
+    </ul>
+    
+  </header>
+  <!-- Chat List / Container -->
+  <div class="chat-list"></div>
+  <!-- Typing Area -->
+  <div class="typing-area">
+    <form action="#" class="typing-form">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Enter a prompt here" class="typing-input" required />
+        <button id="send-message-button" class="icon material-symbols-rounded">send</button>
+      </div>
+      <div class="action-buttons">
+        <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+        <span id="delete-chat-button" class="icon material-symbols-rounded">delete</span>
+      </div>
+    </form>
+    <p class="disclaimer-text">
+      Gemini may display inaccurate info, including about people, so double-check its responses.
+    </p>
+  </div>
+  <script src="../static/input.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400&display=swap" rel="stylesheet">
+</body>
+</html>
