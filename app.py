@@ -101,7 +101,7 @@ for chunk in response:
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
+socketio = SocketIO(app,async_mode="eventlet")
 
 @app.route("/")
 def home():
@@ -195,4 +195,4 @@ def handle_quiz():
     
     emit("quiz-response",(response.text))
 if __name__ == '__main__':
-    socketio.run(app,async_mode='eventlet')
+    socketio.run(app)
