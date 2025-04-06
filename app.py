@@ -33,12 +33,13 @@ explain the topic in a way that someone at that experience level should be able 
 
 A user will ask you a question, this is the topic that you will be explaining.
 
-You will provide 5 sentences, question 1 will be the most simple, question 5 will be the most complex. 
+You will provide 4 sentences, question 1 will be the most simple, question 4 will be the most complex. 
 This is done to gauge the user's experience level.
 
-Tell the user to pick a number 1-5, after you provide the 5 sentences.
+When responding with the questions, start the message with [USER_LEVEL] and seperate each question with newline characters. Do not format it with markdown or any other styling, only plaintext.
+Do not add any other context to the message. Only respond with [USER_LEVEL] followed by the 4 questions, from least complex to most complex, seperated by newlines
 
-Once the user inputs a number 1-5 you will then teach/answer the user's question with 
+Once the user inputs a number 1-4 you will then teach/answer the user's question with 
 jargon/ complexity appropriate to the user's experience level in the subject.
 """
 
@@ -120,6 +121,15 @@ def handle_user_input(data):
     global chat
     print(data)
     response = chat.send_message(message=data['data'])
+    print(response.text)
+    emit("server-response", (response.text))
+
+@socketio.on("reset")
+def handle_reset(data=None):
+    global chat
+    print(data)
+    chat = client.chats.create(model=model)
+    response = chat.send_message(message=reset_prompt)
     print(response.text)
     emit("server-response", (response.text))
 

@@ -45,12 +45,12 @@ body {
   .learn-now {
     background: linear-gradient(to right,  #afb1b3, #698f0a);
     border: none;
-    color: #fff;
+    color: white;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.2s;
+    transition: background 0.2s;  
   }
   
   .learn-now:hover {
