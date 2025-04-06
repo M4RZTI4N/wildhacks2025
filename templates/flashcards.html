@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flashcard App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/main.css">
   <link rel="stylesheet" href="../static/flashcards.css">
+  <title>Flashcard App</title>
 </head>
 <body>
-  <div class="app-container">
+  <div class="container app-container">
     <h1>Flashcard App</h1>
-    <button id="create-btn">Create Flashcards</button>
-
+    <button id="create-btn" class="create-btn">Create Flashcards</button>
     <div id="flashcards-container"></div>
-
     <div class="navigation-buttons">
-      <button id="prev-btn">Previous</button>
-      <button id="flip-btn">Flip</button>
-      <button id="next-btn">Next</button>
+      <button id="prev-btn" class="nav-btn">Previous</button>
+      <button id="flip-btn" class="nav-btn">Flip</button>
+      <button id="next-btn" class="nav-btn">Next</button>
     </div>
   </div>
-
   <script src="../static/flashcards.js"></script>
 </body>
 </html>

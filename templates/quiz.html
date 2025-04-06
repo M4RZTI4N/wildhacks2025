@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/main.css">
   <link rel="stylesheet" href="../static/quiz.css">
   <title>Quiz</title>
 </head>
 <body>
-  <div class="quiz-container">
-    <div id="quiz">
- 
-    </div>
+  <div class="container quiz-container">
+    <div id="quiz"></div>
     <button id="newQuizBtn" class="new-quiz-button">Load New Quiz</button>
   </div>
   <script>
-    
+    // Quiz Data Set 1
     const quizData1 = [
       {
         question: "What is the capital of France?",
@@ -43,7 +42,7 @@
       }
     ];
 
-    
+    // Quiz Data Set 2
     const quizData2 = [
       {
         question: "What is the largest ocean?",
@@ -71,7 +70,7 @@
         correct: 1
       }
     ];
-    
+
     let quizData = quizData1;
     let currentQuestion = 0;
     let score = 0;
@@ -81,26 +80,19 @@
     const newQuizBtn = document.getElementById('newQuizBtn');
 
     function showQuestion() {
-        
       if (currentQuestion >= quizData.length) {
         showResult();
         return;
       }
-      
-      
       quizContainer.innerHTML = "";
-      
-      
       const questionObj = quizData[currentQuestion];
       const questionEl = document.createElement('h2');
       questionEl.innerText = questionObj.question;
       quizContainer.appendChild(questionEl);
       
-      
       const optionsContainer = document.createElement('div');
       optionsContainer.className = "options-container";
       quizContainer.appendChild(optionsContainer);
-      
       
       questionObj.options.forEach((option, index) => {
         const btn = document.createElement('button');
@@ -124,7 +116,6 @@
       scoreEl.innerText = "Your Score: " + score + " / " + quizData.length;
       quizContainer.appendChild(scoreEl);
       
-      
       quizData.forEach((q, i) => {
         const questionResult = document.createElement('div');
         questionResult.className = "result-question";
@@ -136,18 +127,13 @@
       });
     }
 
-    
     showQuestion();
 
-    
     newQuizBtn.addEventListener('click', function() {
-    
       quizData = (quizData === quizData1) ? quizData2 : quizData1;
-    
       currentQuestion = 0;
       score = 0;
       selectedAnswers = [];
-      
       showQuestion();
     });
   </script>

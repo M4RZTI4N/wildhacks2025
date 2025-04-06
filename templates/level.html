@@ -3,42 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include common styles first, then component-specific -->
+  <link rel="stylesheet" href="../static/main.css">
   <link rel="stylesheet" href="../static/level.css">
   <title>Level</title>
 </head>
 <body>
-  
-  <div class="level-container">
-
+  <div class="container level-container">
     <h1>How much ya know big boi</h1>
     <p class="subtitle">Choose one of the options below to help us guide you better.</p>
-
     <div class="button-boxes">
       <button class="selectable-button" id="option1" onclick="showOutput('beginner')">Beginner</button>
       <button class="selectable-button" id="option2" onclick="showOutput('intermediate')">Intermediate</button>
       <button class="selectable-button" id="option3" onclick="showOutput('advanced')">Advanced</button>
       <button class="selectable-button" id="option4" onclick="showOutput('expert')">Expert</button>
-      <div id="output"></div>
+    </div>
+    <div id="output"></div>
   </div>
-  </div>
-
 
   <script>
     function showOutput(level) {
-        let outputText = '';
-        if (level === 'beginner') {
-            outputText = "You're just getting started! Don't worry, we've got plenty of resources to help you learn the basics. Let’s dive into some tutorials and build your foundation.";
-        } else if (level === 'intermediate') {
-            outputText = "Great! You're comfortable with the basics. Let's take it to the next level with some more challenging projects and concepts.";
-        } else if (level === 'advanced') {
-            outputText = "Awesome! You're ready for some advanced topics. Let's explore the deeper aspects and start building complex applications.";
-        } else if (level === 'expert') {
-            outputText = "Impressive! You’re at the top of your game. Let’s challenge you with cutting-edge technologies and real-world project builds.";
-        }
-
-        document.getElementById('output').innerHTML = outputText;
+      let outputText = '';
+      if (level === 'beginner') {
+          outputText = "You're just getting started! Don't worry, we've got plenty of resources to help you learn the basics. Let’s dive into some tutorials and build your foundation.";
+      } else if (level === 'intermediate') {
+          outputText = "Great! You're comfortable with the basics. Let's take it to the next level with some more challenging projects and concepts.";
+      } else if (level === 'advanced') {
+          outputText = "Awesome! You're ready for some advanced topics. Let's explore the deeper aspects and start building complex applications.";
+      } else if (level === 'expert') {
+          outputText = "Impressive! You’re at the top of your game. Let’s challenge you with cutting-edge technologies and real-world project builds.";
+      }
+      document.getElementById('output').innerHTML = outputText;
     }
-</script>
+  </script>
 </body>
 </html>
-

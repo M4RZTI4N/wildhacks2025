@@ -1,0 +1,26 @@
+/* main.css - Common styles for all pages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #161616;
+    /* Allow vertical scrolling if multiple components are loaded */
+    padding: 20px;
+  }
+  
+  .container {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    text-align: center;
+  }
+  
