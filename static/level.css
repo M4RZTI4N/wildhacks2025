@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Reset default browser styles */
 * {
     box-sizing: border-box;
@@ -6,43 +5,41 @@
     padding: 0;
   }
   
-  body {
-    /* background: #f0f0f0; */
-    /* font-family: Poppins, sans-serif; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* min-height: 100vh; */
-  }
+body {
+  /* background: #f0f0f0; */
+  /* font-family: Poppins, sans-serif; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* min-height: 100vh; */
+}
+
+/* Container styling for the level box */
+.level-container {
+  /* background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Styling for the question */
+.level-container h1 {
+  /* font-size: 32px; */
   
-  /* Container styling for the level box */
-  .level-container {
-    /* background: #fff;
-    width: 90%;
-    max-width: 600px;
-    padding: 30px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  }
-  
-  /* Styling for the question */
-  .level-container h1 {
-    /* font-size: 32px; */
-    
-  }
+}
   
   .subtitle{
     /* margin-bottom: 30px; */
   }
-=======
 /* level.css - Specific styles for Level component */
 .level-container h1 {
   font-size: 32px;
   margin-bottom: 15px;
 }
->>>>>>> 25e0a40bd94c7c4db97afa9543164322c4a8c492
 
 .subtitle {
   font-size: 18px;
