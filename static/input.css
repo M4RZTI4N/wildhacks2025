@@ -38,7 +38,7 @@ body {
 .logo {
     width: 80px; /* Adjust the size as needed */
     height: auto;
-    margin-bottom: 20px;
+    margin: 20px;
     cursor: pointer;
   }  
 
