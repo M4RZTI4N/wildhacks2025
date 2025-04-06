@@ -2,8 +2,7 @@ var generate_flaschards = function(cards) {
 
 
     const flashcards = cards
-    console.log(flashcards)
-    flashcardContainer.style.display = "block"
+
     let currentIndex = 0;
     let isFlipped = false;
 
@@ -14,9 +13,7 @@ var generate_flaschards = function(cards) {
     const previousBtn = document.getElementById("prev-btn");
     const flipBtn = document.getElementById("flip-btn");
     const nextBtn = document.getElementById("next-btn");
-    generateBtn.onclick=()=>{
-        socket.emit("user-flashcards")
-    }
+
     function renderCard() {
         const card = flashcards[currentIndex];
         frontElement.textContent = card.front;
@@ -29,24 +26,26 @@ var generate_flaschards = function(cards) {
         flashcardElement.classList.toggle("flip");
         isFlipped = !isFlipped;
     }
-    currentIndex = 0;
-    renderCard();
-    // socket.emit("debug","TEST")
-    previousBtn.disabled = false;
-    nextBtn.disabled = false;
+
     flashcardElement.addEventListener("click", flipCard);
     const cardElements = document.getElementsByClassName("card");
     Array.from(cardElements).forEach(card => {
         card.addEventListener("click", flipCard);
     });
 
-    
+    generateBtn.addEventListener("click", function() {
+        currentIndex = 0;
+        renderCard();
+        // socket.emit("debug","TEST")
+        previousBtn.disabled = false;
+        nextBtn.disabled = false;
+    });
 
     previousBtn.addEventListener("click", function() {
         if (currentIndex > 0) {
             currentIndex--;
             renderCard();
-            previousBtn.disabled = false;
+            previousBtn.disabled = true;
         }
         if (currentIndex === 0) {
             previousBtn.disabled = true;
