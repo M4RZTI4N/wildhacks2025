@@ -67,7 +67,7 @@ body.hide-header .header {
   width: fit-content;
   font-size: 3rem;
   background-clip: text;
-  background: linear-gradient(to right, #4285f4, #d96570);
+  background: linear-gradient(to right, #f4f5f6, #aae90b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
