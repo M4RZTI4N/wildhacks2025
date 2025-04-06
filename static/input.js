@@ -23,10 +23,34 @@ const levelContainer = document.getElementById("level-container")
 const buttonBoxes = document.querySelector(".button-boxes")
 const createFlashcards = document.getElementById("create-flashcards")
 const flashcardContainer = document.getElementById("flashcards-container")
+const createQuiz = document.getElementById("create-quiz")
+const quizContainer = document.getElementById("quiz-container")
 // State variables
 let userMessage = null;
 let isResponseGenerating = false;
 
+createQuiz.onclick = ()=>{
+    socket.emit("user-quiz")
+}
+socket.on("quiz-response",(data)=>{
+    let new_data = data.split('\n').slice(0,-1).filter((s)=>s!="");
+    let processed_data = []
+    for(let i =0; i < new_data.length; i += 3){
+        let new_q = {
+            "question":"",
+            "options":[],
+            "correct":0
+        }
+        new_q.question = new_data[i],
+        new_q.options = new_data[i+1].replace("[","").replace("]","").split(",")
+        new_q.correct = new_data[i+2].replace("(","").replace(")","").trim()
+        processed_data.push(new_q)
+    }
+    console.log(processed_data)
+    quizContainer.style.display = "block"
+    do_quiz(processed_data)
+
+})
 
 createFlashcards.onclick = () =>{
     
