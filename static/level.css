@@ -1,0 +1,68 @@
+/* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container styling for the level box */
+  .level-container {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the question */
+  .level-container h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  /* Flex layout for the buttons with wrapping */
+  .button-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Each button occupies roughly half the container width (2 per row) */
+  .selectable-button {
+    background: #e8e8e8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+    /* Force two per row */
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+  
+  /* Hover effect for the buttons */
+  .selectable-button:hover {
+    background: #d0d0d0;
+  }
+  
+  /* Styling for a selected button (toggle via JavaScript if needed) */
+  .selectable-button.selected {
+    background: #4285f4;
+    color: #fff;
+    border-color: #4285f4;
+  }
+  
