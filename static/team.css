@@ -7,6 +7,18 @@
   margin: 0;
   padding: 0;
 }
+
+.logo img{
+  width: 70px; /* Adjust the size as needed */
+  /* height: auto; */
+  /* margin: 20px; */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  display: flex;
+}  
+
 body {
   min-height: 100vh;
   font-family: Arial, sans-serif;

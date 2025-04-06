@@ -42,12 +42,15 @@ body {
 }
 
 /* Logo styling */
-.logo {
-    width: 80px; /* Adjust the size as needed */
-    height: auto;
-    margin: 20px;
-    cursor: pointer;
+.logo img{
+    width: 70px; /* Adjust the size as needed */
+    /* height: auto; */
+    /* margin: 20px; */
+    /* cursor: pointer; */
+    display: flex;
   }  
+
+
 
 .header {
   margin-top: 6vh;
@@ -97,7 +100,7 @@ body.hide-header .header {
   /* overflow-x: auto; */
   /* scroll-snap-type: x mandatory; */
   /* scrollbar-width: none; */ */
-}
+
 .suggestion-list .suggestion {
   background: rgba(70, 70, 70, 0.8);
   text-align: center;
