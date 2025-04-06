@@ -10,6 +10,19 @@
   padding: 0;
 }
 
+<<<<<<< HEAD
+.logo img{
+  width: 70px; /* Adjust the size as needed */
+  /* height: auto; */
+  /* margin: 20px; */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  display: flex;
+}  
+=======
+>>>>>>> 6168c9d346e672f4837455a72ace551f9d905f4e
 
 body {
   min-height: 100vh;
