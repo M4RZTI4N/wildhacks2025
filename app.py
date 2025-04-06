@@ -172,5 +172,20 @@ def handle_flashcards():
     print(response.text)
     
     emit("flashcards-response",(response.text))
+
+@socketio.on("user-quiz")
+def handle_quiz():
+    global chat
+    response = chat.send_message("""
+    Return a set of 5 multiple choice quiz questions about the most recently discussed topic along with 4 potential answers for each one. Format it like this:
+    Question
+    [answer1,answer2,answer3,answer4]
+    (correctIndex)
+                                 
+    The questions should help reinforce what you have discussed recentnly and improve understanding of the topic. Do not include any other text besides the questions in your response
+    """)
+    print(response.text)
+    
+    emit("quiz-response",(response.text))
 if __name__ == '__main__':
     socketio.run(app)
