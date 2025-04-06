@@ -4,4 +4,3 @@ dotenv
 flask
 flask_socketio
 gunicorn
-eventlet >= 0.30.0

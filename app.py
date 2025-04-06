@@ -1,5 +1,4 @@
-import eventlet
-eventlet.monkey_patch()
+
 from google import genai
 from google.genai import types
 import os
