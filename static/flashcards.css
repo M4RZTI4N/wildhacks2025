@@ -5,8 +5,10 @@
 }
 
 .create-btn {
-  background: #4285f4;
-  color: #fff;
+  /* background: #68f27a; */
+
+  background: linear-gradient(45deg, #a8ffac, #f2f2f2);
+  color: #010101;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -17,7 +19,9 @@
 }
 
 .create-btn:hover {
-  background: #3367d6;
+  /* background: #08a513; */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 #flashcards-container {
@@ -31,7 +35,8 @@
 }
 
 .nav-btn {
-  background: #a8c0ff;
+  /* background: #a8ffb2; */
+  background: linear-gradient(45deg, #a8ffac, #f2f2f2);
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -41,7 +46,9 @@
 }
 
 .nav-btn:hover {
-  background: #8aa5e3;
+  /* background: #7aad65; */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 
