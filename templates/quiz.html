@@ -8,10 +8,17 @@
   <title>Quiz</title>
 </head>
 <body>
-  <div class="container quiz-container">
+  <div class="container" id="quiz-container">
+    <div class="exit" id="exit-btn">X</div>
     <div id="quiz"></div>
     <button id="newQuizBtn" class="new-quiz-button">Load New Quiz</button>
   </div>
+
+  <script>
+    document.getElementById('exit-btn').addEventListener('click', function() {
+     document.getElementById('quiz-container').style.display = 'none';
+ });
+</script>
   <script src="../static/quiz.js"></script>
 </body>
 </html>
