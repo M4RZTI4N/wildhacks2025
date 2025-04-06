@@ -124,7 +124,7 @@ def handle_user_input(data):
     emit("server-response", (response.text))
 
 @socketio.on("reset")
-def handle_reset(data):
+def handle_reset(data=None):
     global chat
     print(data)
     chat = client.chats.create(model=model)
