@@ -50,3 +50,6 @@
 .new-quiz-button:hover {
   background: #3367d6;
 }
+#quiz-container{
+  display:none;
+}

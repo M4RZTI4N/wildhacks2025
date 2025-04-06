@@ -1,11 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const flashcards = [
-        { front: "Question1", back: "Answer1" },
-        { front: "Question2", back: "Answer2" },
-        { front: "Question3", back: "Answer3" },
-        { front: "Question4", back: "Answer4" },
-        { front: "Question5", back: "Answer5" }
-    ];
+var generate_flaschards = function(cards) {
+
+
+    const flashcards = cards
 
     let currentIndex = 0;
     let isFlipped = false;
@@ -40,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     generateBtn.addEventListener("click", function() {
         currentIndex = 0;
         renderCard();
+        // socket.emit("debug","TEST")
         previousBtn.disabled = false;
         nextBtn.disabled = false;
     });
@@ -48,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (currentIndex > 0) {
             currentIndex--;
             renderCard();
+            previousBtn.disabled = true;
         }
         if (currentIndex === 0) {
             previousBtn.disabled = true;
@@ -58,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (currentIndex < flashcards.length - 1) {
             currentIndex++;
             renderCard();
+            nextBtn.disabled = false;
         }
         if (currentIndex === flashcards.length - 1) {
                nextBtn.disabled = true;
@@ -67,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (flipBtn) {
         flipBtn.addEventListener("click", flipCard);
     }
-    const outputElement = document.getElementById('output');
-    if (outputElement) {
-        outputElement.innerHTML = "Flashcards loaded. Click 'Generate' to start!";
-    }
+    // // const outputElement = document.getElementById('output');
+    // if (outputElement) {
+    //     outputElement.innerHTML = "Flashcards loaded. Click 'Generate' to start!";
+    // }
 
-});
+};

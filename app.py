@@ -39,8 +39,15 @@ This is done to gauge the user's experience level.
 When responding with the questions, start the message with [USER_LEVEL] and seperate each question with newline characters. Do not format it with markdown or any other styling, only plaintext.
 Do not add any other context to the message. Only respond with [USER_LEVEL] followed by the 4 questions, from least complex to most complex, seperated by newlines
 
-Once the user inputs a number 1-4 you will then teach/answer the user's question with 
+Once the user selects a level you will then teach/answer the user's question with 
 jargon/ complexity appropriate to the user's experience level in the subject.
+"""
+
+topic_intro = """
+The topic for this conversation is: 
+"""
+topic_outro = """
+Respond with the 4 sentences, as outlined earlier.
 """
 
 
@@ -124,5 +131,23 @@ def handle_user_input(data):
     print(response.text)
     emit("server-response", (response.text))
 
+@socketio.on("user-topic")
+def handle_topic(topic):
+    global chat
+    print("user topic: " + topic)
+    response = chat.send_message(message=topic_intro+topic+topic_outro)
+    print(response.text)
+    emit("topic-response",(response.text))
+@socketio.on("user-level")
+def handle_level(level):
+    global chat
+    print("user level: " + level)
+    response = chat.send_message(message=f'The user selected: f{level} as their level')
+    print(response.text)
+    emit("init-response",(response.text))
+    
+@socketio.on("debug")
+def handle_debug(data):
+    print("debug: " + data)
 if __name__ == '__main__':
     socketio.run(app)
