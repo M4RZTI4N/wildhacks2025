@@ -154,9 +154,23 @@ def handle_reset(data=None):
     global chat
     print(data)
     chat = client.chats.create(model=model)
-    response = chat.send_message(message=reset_prompt)
+    response = chat.send_message(message=prompt)
     print(response.text)
     emit("server-response", (response.text))
-
+@socketio.on("user-flashcards")
+def handle_flashcards():
+    global chat
+    response = chat.send_message("""Return a set of 5 flashcards about the most recent topic given. where each side is seperated by a newline character, like this:
+    card1side1
+    card1side2
+    card2side1
+    card2side2
+    
+    and so on. Do not include any other text in your response. Side 1 of each card should ask a question, such as 'what does ____ mean?' or 'how is ____ able to ?'. Side 2 should contain the solution to those questions.
+    The flashcards should help the user develop a better understanding of keywords and main ideas related to the topic
+    """)
+    print(response.text)
+    
+    emit("flashcards-response",(response.text))
 if __name__ == '__main__':
     socketio.run(app)
