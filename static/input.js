@@ -16,7 +16,7 @@ const continueConvo = document.querySelector(".continue-convo")
 // State variables
 let userMessage = null;
 let isResponseGenerating = false;
-
+let promptSetup = false;
 // Load theme and chat data from local storage on page load
 const loadDataFromLocalstorage = () => {
   const savedChats = localStorage.getItem("saved-chats");
@@ -28,6 +28,10 @@ const loadDataFromLocalstorage = () => {
   chatContainer.innerHTML = savedChats || '';
   document.body.classList.toggle("hide-header", savedChats);
   chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
+
+  if(!savedChats){
+    promptSetup = true
+  }
 }
 // Create a new message element and return it
 const createMessageElement = (content, ...classes) => {
@@ -141,12 +145,12 @@ continueConvo.addEventListener("click",()=>{
     deleteDialog.style.display = "none";
 })
 // Set userMessage and handle outgoing chat when a suggestion is clicked
-suggestions.forEach(suggestion => {
-  suggestion.addEventListener("click", () => {
-    userMessage = suggestion.querySelector(".text").innerText;
-    handleOutgoingChat();
-  });
-});
+// suggestions.forEach(suggestion => {
+//   suggestion.addEventListener("click", () => {
+//     userMessage = suggestion.querySelector(".text").innerText;
+//     handleOutgoingChat();
+//   });
+// });
 // Prevent default form submission and handle outgoing chat
 typingForm.addEventListener("submit", (e) => {
   e.preventDefault(); 
