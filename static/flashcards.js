@@ -3,7 +3,7 @@ var generate_flaschards = function(cards) {
 
     const flashcards = cards
     console.log(flashcards)
-    flashcardContainer.style.display = "block"
+    document.getElementById("flashcards-container").style.display = "block";
     let currentIndex = 0;
     let isFlipped = false;
 
@@ -14,6 +14,7 @@ var generate_flaschards = function(cards) {
     const previousBtn = document.getElementById("prev-btn");
     const flipBtn = document.getElementById("flip-btn");
     const nextBtn = document.getElementById("next-btn");
+    
     generateBtn.onclick=()=>{
         socket.emit("user-flashcards")
     }
@@ -28,6 +29,7 @@ var generate_flaschards = function(cards) {
     function flipCard() {
         flashcardElement.classList.toggle("flip");
         isFlipped = !isFlipped;
+        console.log("flippin")
     }
     currentIndex = 0;
     renderCard();
@@ -35,6 +37,7 @@ var generate_flaschards = function(cards) {
     previousBtn.disabled = false;
     nextBtn.disabled = false;
     flashcardElement.addEventListener("click", flipCard);
+    flipBtn.addEventListener("click",flipCard)
     const cardElements = document.getElementsByClassName("card");
     Array.from(cardElements).forEach(card => {
         card.addEventListener("click", flipCard);

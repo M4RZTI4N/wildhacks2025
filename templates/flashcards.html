@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container" id="flashcards-container">
-        <div class="exit" id="exit-btn">X</div>
+        <div class="exit" id="exit-btn" onclick="document.getElementById('flashcards-container').style.display = 'none';">X</div>
         <h1>Flash Cards</h1> 
         <button class="create-btn" id="create-btn">Regenerate Cards</button>
         <div class="card" id="flashcard">
@@ -27,7 +27,7 @@
        document.getElementById('exit-btn').addEventListener('click', function() {
         document.getElementById('flashcards-container').style.display = 'none';
     });
-</script>
+    </script>
     <script src="../static/flashcards.js"></script>
 </body>
 </html>

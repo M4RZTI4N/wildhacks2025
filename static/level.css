@@ -36,13 +36,13 @@ body {
   .subtitle{
     /* margin-bottom: 30px; */
   }
-=======
+
 /* level.css - Specific styles for Level component */
 #level-container h1 {
   font-size: 32px;
   margin-bottom: 15px;
 }
->>>>>>> 25e0a40bd94c7c4db97afa9543164322c4a8c492
+
 
 .subtitle {
   font-size: 18px;

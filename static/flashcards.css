@@ -7,9 +7,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  position: absolute;
+  position:absolute;
   top: 60px;
   right: 60px;
+  color:white;
 }
 .create-btn {
   /* background: #68f27a; */

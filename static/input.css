@@ -12,6 +12,9 @@ html, body {
 }
 .logo{
   position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
 }
 :root {
   /* Dark mode colors */
@@ -40,7 +43,7 @@ body {
   position:absolute;
   top:0;
   left:0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -59,7 +62,7 @@ body {
     /* margin: 20px; */
     /* cursor: pointer; */
     display: flex;
-  }  
+}  
 
 
 
@@ -110,8 +113,8 @@ body.hide-header .header {
   /* overflow: hidden; */
   /* overflow-x: auto; */
   /* scroll-snap-type: x mandatory; */
-  /* scrollbar-width: none; */ */
-
+  /* scrollbar-width: none; */
+}
 .suggestion-list .suggestion {
   background: rgba(70, 70, 70, 0.8);
   text-align: center;
@@ -386,4 +389,3 @@ body.hide-header .header {
   color: var(--text-color);
   font-size: 2em;
 }
-

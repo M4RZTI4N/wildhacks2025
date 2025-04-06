@@ -70,6 +70,7 @@ socket.on("flashcards-response",(data)=>{
     }
     console.log(new_data)
     console.log(flashcards)
+    flashcardContainer.style.display = 'block';
     generate_flaschards(flashcards)
 })
 const promptSetup = ()=>{
