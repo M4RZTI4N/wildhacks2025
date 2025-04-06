@@ -62,7 +62,9 @@
   margin: 0;
   background-color: #f4f4f9;
 } */
-
+#flashcards-container{
+  display:none;
+}
 .container {
   text-align: center;
 }

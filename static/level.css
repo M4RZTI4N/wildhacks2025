@@ -6,39 +6,39 @@
     padding: 0;
   }
   
-  body {
-    background: #f0f0f0; */
-    font-family: Poppins, sans-serif; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Container styling for the level box */
-  .level-container {
-    background: #fff;
-    width: 90%;
-    max-width: 600px;
-    padding: 30px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Styling for the question */
-  .level-container h1 {
-    font-size: 32px;
-    
-  }
+body {
+  /* background: #f0f0f0; */
+  /* font-family: Poppins, sans-serif; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* min-height: 100vh; */
+}
 
+/* Container styling for the level box */
+#level-container {
+  /* background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Styling for the question */
+#level-container h1 {
+  /* font-size: 32px; */
+  
+}
+  
   .subtitle{
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
   }
 =======
 /* level.css - Specific styles for Level component */
-.level-container h1 {
+#level-container h1 {
   font-size: 32px;
   margin-bottom: 15px;
 }
@@ -71,4 +71,7 @@
 .selectable-button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+#level-container{
+  display: none;
 }

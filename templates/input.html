@@ -25,19 +25,22 @@
     <p class="subtitle">What you tryna learn?</p>
   </header>
 
-  <div class="delete-storage">
-    <p class="title">Do you want to continue your old conversation, or learn something new?</p>
-    <button class="new-convo">Learn something new</button>
-    <button class="continue-convo">Continue the previous topic</button>
-  </div>
+  
   <!-- Chat List / Container -->
   
 
     
     </div>
+    <div class="delete-storage">
+        <p class="title">Do you want to continue your old conversation, or learn something new?</p>
+        <button class="new-convo">Learn something new</button>
+        <button class="continue-convo">Continue the previous topic</button>
+      </div>
 <!-- Button to create Flash Cards, Quiz -->
 <div id="components-container">
+    {% include "topic.html" %}
     {% include "level.html" %}
+    
     {% include "quiz.html" %}
     {% include "flashcards.html" %}
 </div>
@@ -45,11 +48,11 @@
 
 
   <ul class="suggestion-list">
-    <li class="suggestion">
+    <li class="suggestion" id="create-flashcards">
         <h4 class="text">Create Flashcards</h4>
         <!-- <span class="icon material-symbols-rounded">draw</span> -->
     </li>
-    <li class="suggestion">
+    <li class="suggestion" id="create-quiz">
         <h4 class="text">Create Quiz</h4>
         <!-- <span class="icon material-symbols-rounded">lightbulb</span> -->
     </li>
@@ -57,7 +60,7 @@
 </ul>
 
   <div class="typing-area">
-    <form action="#" class="typing-form">
+    <form action="#" class="typing-form" id="chat-form">
       <div class="input-wrapper">
         <input type="text" placeholder="Enter a prompt here" class="typing-input" required />
         <button id="send-message-button" class="icon material-symbols-rounded">send</button>
@@ -72,10 +75,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>  
+  <script src="../static/input.js"></script>
   <script src="../static/level.js"></script>
   <script src="../static/flashcards.js"></script>
   <script src="../static/quiz.js"></script>
-  <script src="../static/input.js"></script>
+  
 
 
 </body>

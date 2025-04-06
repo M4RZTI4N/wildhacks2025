@@ -40,8 +40,15 @@ This is done to gauge the user's experience level.
 When responding with the questions, start the message with [USER_LEVEL] and seperate each question with newline characters. Do not format it with markdown or any other styling, only plaintext.
 Do not add any other context to the message. Only respond with [USER_LEVEL] followed by the 4 questions, from least complex to most complex, seperated by newlines
 
-Once the user inputs a number 1-4 you will then teach/answer the user's question with 
+Once the user selects a level you will then teach/answer the user's question with 
 jargon/ complexity appropriate to the user's experience level in the subject.
+"""
+
+topic_intro = """
+The topic for this conversation is: 
+"""
+topic_outro = """
+Respond with the 4 sentences, as outlined earlier.
 """
 
 
@@ -129,14 +136,46 @@ def handle_user_input(data):
     print(response.text)
     emit("server-response", (response.text))
 
+@socketio.on("user-topic")
+def handle_topic(topic):
+    global chat
+    print("user topic: " + topic)
+    response = chat.send_message(message=topic_intro+topic+topic_outro)
+    print(response.text)
+    emit("topic-response",(response.text))
+@socketio.on("user-level")
+def handle_level(level):
+    global chat
+    print("user level: " + level)
+    response = chat.send_message(message=f'The user selected: f{level} as their level')
+    print(response.text)
+    emit("init-response",(response.text))
+    
+@socketio.on("debug")
+def handle_debug(data):
+    print("debug: " + data)
 @socketio.on("reset")
 def handle_reset(data=None):
     global chat
     print(data)
     chat = client.chats.create(model=model)
-    response = chat.send_message(message=reset_prompt)
+    response = chat.send_message(message=prompt)
     print(response.text)
     emit("server-response", (response.text))
-
+@socketio.on("user-flashcards")
+def handle_flashcards():
+    global chat
+    response = chat.send_message("""Return a set of 5 flashcards about the most recent topic given. where each side is seperated by a newline character, like this:
+    card1side1
+    card1side2
+    card2side1
+    card2side2
+    
+    and so on. Do not include any other text in your response. Side 1 of each card should ask a question, such as 'what does ____ mean?' or 'how is ____ able to ?'. Side 2 should contain the solution to those questions.
+    The flashcards should help the user develop a better understanding of keywords and main ideas related to the topic
+    """)
+    print(response.text)
+    
+    emit("flashcards-response",(response.text))
 if __name__ == '__main__':
     socketio.run(app)
