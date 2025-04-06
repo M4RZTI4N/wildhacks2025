@@ -29,9 +29,13 @@
   /* Styling for the question */
   .level-container h1 {
     font-size: 32px;
-    margin-bottom: 30px;
+    
   }
   
+  .subtitle{
+    margin-bottom: 30px;
+  }
+
   /* Flex layout for the buttons with wrapping */
   .button-boxes {
     display: flex;
