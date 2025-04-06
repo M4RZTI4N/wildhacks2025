@@ -33,6 +33,15 @@ body {
   margin: 0 auto;
   max-width: 980px;
 }
+
+/* Logo styling */
+.logo {
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }  
+
 .header {
   margin-top: 6vh;
   padding: 1rem;
@@ -259,12 +268,7 @@ body.hide-header .header {
 .typing-form .typing-input:valid ~ #send-message-button {
   transform: scale(1);
 }
-.typing-area .disclaimer-text {
-  text-align: center;
-  font-size: 0.85rem;
-  margin-top: 1rem;
-  color: var(--placeholder-color);
-}
+
 /* Responsive media query code for small screen */
 @media (max-width: 768px) {
   .header :is(.title, .subtitle) {
@@ -286,9 +290,5 @@ body.hide-header .header {
   .typing-area .icon {
     height: 50px;
     width: 50px;
-  }
-  .typing-area .disclaimer-text {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
   }
 }
