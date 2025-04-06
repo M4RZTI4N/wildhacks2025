@@ -1,3 +1,5 @@
+import eventlet
+eventlet.monkey_patch()
 from google import genai
 from google.genai import types
 import os
@@ -193,4 +195,4 @@ def handle_quiz():
     
     emit("quiz-response",(response.text))
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app,async_mode='eventlet')
