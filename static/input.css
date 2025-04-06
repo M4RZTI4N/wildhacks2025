@@ -7,6 +7,12 @@
   font-family: "Poppins", sans-serif;
 }
 
+html, body {
+  overflow: hidden;
+}
+.logo{
+  position: fixed;
+}
 :root {
   /* Dark mode colors */
   --text-color: #e3e3e3;
@@ -69,28 +75,45 @@ body.hide-header .header {
   font-size: 2.6rem;
   color: var(--subheading-color);
 }
+
+
+
 .suggestion-list {
+  position: fixed;
+  bottom: 6rem;
   width: 100%;
-  list-style: none;
+ /* Makes the background slightly translucent */
+  /* bottom: 12rem; Adjust this value to position above the typing area */
+  /* /* width: 100%; */
+  /* list-style: none; */
   display: flex;
-  gap: 1.25rem;
-  margin-top: 9.5vh;
-  overflow: hidden;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  justify-content: center;  /* gap: 1.25rem; */
+  justify-content: space-evenly;
+
+  /* justify-content: space-between; */
+
+  /* margin-top: 9.5vh; */
+  /* overflow: hidden; */
+  /* overflow-x: auto; */
+  /* scroll-snap-type: x mandatory; */
+  /* scrollbar-width: none; */ */
 }
 .suggestion-list .suggestion {
+  background: rgba(70, 70, 70, 0.8);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  padding: 1.25rem;
-  width: 222px;
+  /* padding: 1.25rem; */
+  width: 200px;
+  height: 50px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   border-radius: 0.75rem;
-  justify-content: space-between;
-  background: var(--secondary-color);
+  /* justify-content: space-between; */
+  /* background: var(--secondary-color); */
   transition: 0.2s ease;
 }
 .suggestion-list .suggestion:hover {
@@ -105,7 +128,7 @@ body.hide-header .header {
   height: 42px;
   display: flex;
   font-size: 1.3rem;
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
   align-self: flex-end;
   align-items: center;
   border-radius: 50%;
@@ -204,6 +227,8 @@ body.hide-header .header {
     background-position: 800px 0;
   }
 }
+
+
 .typing-area {
   position: fixed;
   width: 100%;
@@ -347,3 +372,4 @@ body.hide-header .header {
   color: var(--text-color);
   font-size: 2em;
 }
+

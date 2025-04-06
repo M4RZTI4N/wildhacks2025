@@ -155,20 +155,30 @@
 
 
 // Utility function to load external HTML into a container
-async function loadComponent(file, containerId) {
-    try {
-      const res = await fetch(file);
-      const html = await res.text();
-      document.getElementById(containerId).innerHTML += html;
-    } catch (err) {
-      console.error(`Failed to load ${file}:`, err);
-    }
+async function loadComponent(file, containerId, scriptSrc) {
+  try {
+    // Fetch the HTML content
+    const res = await fetch(file);
+    const html = await res.text();
+    document.getElementById(containerId).innerHTML += html;
+
+    // Dynamically load the JavaScript file
+    const script = document.createElement('script');
+    script.src = scriptSrc;
+    script.onload = () => {
+      console.log(`${scriptSrc} has been loaded.`);
+    };
+    document.body.appendChild(script); // Append the script tag to the body
+  } catch (err) {
+    console.error(`Failed to load ${file}:`, err);
   }
-  
-  // Load all components once the page is loaded
-  window.addEventListener("DOMContentLoaded", () => {
-    loadComponent("level.html", "components-container");
-    loadComponent("flashcards.html", "components-container");
-    loadComponent("quiz.html", "components-container");
-  });
+}
+
+// Load components including their scripts
+window.addEventListener("DOMContentLoaded", () => {
+  loadComponent("level.html", "components-container", "../static/level.js");
+  loadComponent("flashcards.html", "components-container", "../static/flashcards.js");
+  loadComponent("quiz.html", "components-container", "../static/quiz.js");
+});
+
   

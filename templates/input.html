@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/input.css">
-  <!-- <link rel="stylesheet" href="../static/level.css"> -->
-  <!-- <link rel="stylesheet" href="../static/flashcards.css"> -->
-  <!-- <link rel="stylesheet" href="../static/quiz.css"> -->
-  <title>Document</title>
+  <link rel="stylesheet" href="../static/level.css">
+  <link rel="stylesheet" href="../static/flashcards.css">
+  <link rel="stylesheet" href="../static/quiz.css">
+  <title>Input</title>
 </head>
 <body>
+  <!-- Logo linking back to home.html -->
   <div class="logo">
     <a  href="home.html">
       <h2>Logo</h2>
     </a>
   </div>
-  <header class="header">
-    <!-- Logo linking back to home.html -->
-    
 
+  <div class="chat-list">
+  <header class="header">
+    
     <!-- Header Greetings -->
-    <h1 class="title">Suuuuh</h1>
+    <h1 class="title">Suuuh</h1>
     <p class="subtitle">What you tryna learn?</p>
   </header>
 
@@ -31,13 +32,26 @@
   </div>
   <!-- Chat List / Container -->
   
-  <div class="chat-list">
-      <div id="components-container"></div>
+
+    <div id="components-container"></div>
 </div>
 <!-- Button to create Flash Cards, Quiz -->
 
-
   <!-- Typing Area -->
+
+
+  <ul class="suggestion-list">
+    <li class="suggestion">
+        <h4 class="text">Create Flashcards</h4>
+        <!-- <span class="icon material-symbols-rounded">draw</span> -->
+    </li>
+    <li class="suggestion">
+        <h4 class="text">Create Quiz</h4>
+        <!-- <span class="icon material-symbols-rounded">lightbulb</span> -->
+    </li>
+
+</ul>
+
   <div class="typing-area">
     <form action="#" class="typing-form">
       <div class="input-wrapper">
@@ -51,12 +65,14 @@
     </form>
   </div>
   
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>  
+  <script src="../static/level.js"></script>
   <script src="../static/flashcards.js"></script>
-
+  <script src="../static/quiz.js"></script>
   <script src="../static/input.js"></script>
+
+
 </body>
 </html>

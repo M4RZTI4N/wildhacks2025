@@ -1,63 +1,75 @@
-// let flashcards = [];
-// let currentCardIndex = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const flashcards = [
+        { front: "Question1", back: "Answer1" },
+        { front: "Question2", back: "Answer2" },
+        { front: "Question3", back: "Answer3" },
+        { front: "Question4", back: "Answer4" },
+        { front: "Question5", back: "Answer5" }
+    ];
 
-// document.getElementById("create-btn").addEventListener("click", () => {
-//   currentCardIndex = 0;
-//   flashcards = [];
+    let currentIndex = 0;
+    let isFlipped = false;
 
-//   for (let i = 1; i <= 10; i++) {
-//     const card = {
-//       front: `Flashcard ${i} - Front`,
-//       back: `Flashcard ${i} - Back`
-//     };
-//     flashcards.push(card);
-//   }
+    const frontElement = document.getElementById("front");
+    const backElement = document.getElementById("back");
+    const flashcardElement = document.getElementById("flashcard");
+    const generateBtn = document.getElementById("create-btn");
+    const previousBtn = document.getElementById("prev-btn");
+    const flipBtn = document.getElementById("flip-btn");
+    const nextBtn = document.getElementById("next-btn");
 
-//   renderCard();
-//   document.querySelector(".navigation-buttons").style.display = "block";
-// });
+    function renderCard() {
+        const card = flashcards[currentIndex];
+        frontElement.textContent = card.front;
+        backElement.textContent = card.back;
+        flashcardElement.classList.remove("flip");
+        isFlipped = false;
+    }
 
-// document.getElementById("prev-btn").addEventListener("click", () => {
-//   if (currentCardIndex > 0) {
-//     currentCardIndex--;
-//     renderCard();
-//   }
-// });
+    function flipCard() {
+        flashcardElement.classList.toggle("flip");
+        isFlipped = !isFlipped;
+    }
 
-// document.getElementById("next-btn").addEventListener("click", () => {
-//   if (currentCardIndex < flashcards.length - 1) {
-//     currentCardIndex++;
-//     renderCard();
-//   }
-// });
+    flashcardElement.addEventListener("click", flipCard);
+    const cardElements = document.getElementsByClassName("card");
+    Array.from(cardElements).forEach(card => {
+        card.addEventListener("click", flipCard);
+    });
 
-// document.getElementById("flip-btn").addEventListener("click", () => {
-//   const flashcardElement = document.querySelector(".flashcard");
-//   flashcardElement.classList.toggle("flipped");
-// });
+    generateBtn.addEventListener("click", function() {
+        currentIndex = 0;
+        renderCard();
+        previousBtn.disabled = false;
+        nextBtn.disabled = false;
+    });
 
-// function renderCard() {
-//   const container = document.getElementById("flashcards-container");
-//   container.innerHTML = "";
+    previousBtn.addEventListener("click", function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderCard();
+        }
+        if (currentIndex === 0) {
+            previousBtn.disabled = true;
+        }
+    });
 
-//   const cardData = flashcards[currentCardIndex];
+    nextBtn.addEventListener("click", function() {
+        if (currentIndex < flashcards.length - 1) {
+            currentIndex++;
+            renderCard();
+        }
+        if (currentIndex === flashcards.length - 1) {
+               nextBtn.disabled = true;
+        }
+    });
 
-//   const flashcard = document.createElement("div");
-//   flashcard.className = "flashcard";
+    if (flipBtn) {
+        flipBtn.addEventListener("click", flipCard);
+    }
+    const outputElement = document.getElementById('output');
+    if (outputElement) {
+        outputElement.innerHTML = "Flashcards loaded. Click 'Generate' to start!";
+    }
 
-//   const inner = document.createElement("div");
-//   inner.className = "flashcard-inner";
-
-//   const front = document.createElement("div");
-//   front.className = "flashcard-front";
-//   front.textContent = cardData.front;
-
-//   const back = document.createElement("div");
-//   back.className = "flashcard-back";
-//   back.textContent = cardData.back;
-
-//   inner.appendChild(front);
-//   inner.appendChild(back);
-//   flashcard.appendChild(inner);
-//   container.appendChild(flashcard);
-// }
+});
