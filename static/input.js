@@ -1,3 +1,10 @@
+var socket = io();
+socket.on('connect', function() {
+    console.log("connected")
+});
+
+
+
 const typingForm = document.querySelector(".typing-form");
 const chatContainer = document.querySelector(".chat-list");
 const suggestions = document.querySelectorAll(".suggestion");
@@ -30,11 +37,11 @@ const createMessageElement = (content, ...classes) => {
 }
 // Show typing effect by displaying words one by one
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
-  const words = text.split(' ');
+  const words = marked.parse(text).split(' ');
   let currentWordIndex = 0;
   const typingInterval = setInterval(() => {
     // Append each word to the text element with a space
-    textElement.innerText += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
+    textElement.innerHTML += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
     incomingMessageDiv.querySelector(".icon").classList.add("hide");
     // If all words are displayed
     if (currentWordIndex === words.length) {
@@ -50,22 +57,19 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
 const generateAPIResponse = async (incomingMessageDiv) => {
   const textElement = incomingMessageDiv.querySelector(".text"); // Getting text element
   try {
-    // Send a POST request to the API with the user's message
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ 
-        contents: [{ 
-          role: "user", 
-          parts: [{ text: userMessage }] 
-        }] 
-      }),
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
-    // Get the API response text and remove asterisks from it
-    const apiResponse = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
-    showTypingEffect(apiResponse, textElement, incomingMessageDiv); // Show typing effect
+    // Send a POST request to the API with the user's mes
+
+    const socket_data =  ()=> new Promise(resolve => {
+        socket.emit("user-input",{
+            data:userMessage
+        })
+        socket.on("server-response",data=>{
+            resolve(data)
+        })
+    })
+    let server_return = await socket_data()
+    console.log(server_return)
+    showTypingEffect(server_return, textElement, incomingMessageDiv); // Show typing effect
   } catch (error) { // Handle error
     isResponseGenerating = false;
     textElement.innerText = error.message;

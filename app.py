@@ -59,7 +59,7 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def home():
-    return render_template("hometest.html")
+    return render_template("input.html")
 
 @app.route("/chat")
 def chatfunc():
@@ -86,6 +86,7 @@ def handle_user_input(data):
     global chat
     print(data)
     response = chat.send_message(message=data['data'])
+    print(response.text)
     emit("server-response", (response.text))
 
 if __name__ == '__main__':
