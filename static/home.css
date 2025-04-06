@@ -18,7 +18,7 @@ body {
   
   
   .home h1 {
-    background: linear-gradient(to right, #4285f4, #d96570);
+    background: linear-gradient(to right,#DFF0D8, #2E7D32);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 48px;
@@ -42,14 +42,14 @@ body {
   
   
   .learn-now {
-    background: linear-gradient(to right, #4285f4, #d96570);
+    background: linear-gradient(to right, #DFF0D8, #2E7D32);
     border: none;
-    color: #fff;
+    color: white;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.2s;
+    transition: background 0.2s;  
   }
   
   .learn-now:hover {
@@ -94,17 +94,153 @@ body {
     animation: rotateBg 30s linear infinite;
   }
   
+
   /* First radial gradient layer */
   body::before {
-    background: radial-gradient(circle at center, rgba(66, 133, 244, 0.3), transparent 70%);
+    background: radial-gradient(circle at center,    #2b2f2b, transparent 70%);
   }
   
   /* Second radial gradient layer with a different position and animation duration */
   body::after {
-    background: radial-gradient(circle at 70% 30%, rgba(217, 101, 112, 0.3), transparent 70%);
+    background: radial-gradient(circle at 70% 30%, #133515, transparent 70%);
     animation-duration: 45s;
   }
   
+
+  /* 3D moving objects */
+  .floating-objects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    perspective: 1000px;
+  }
+
+  .floating-objects div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to right, rgb(159, 176, 98), rgb(33, 151, 82));
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    opacity: 0.9;
+    box-shadow: 0 0 25px rgba(66, 133, 244, 0.8), 0 0 50px rgba(217, 101, 112, 0.8), 0 0 75px rgba(66, 133, 244, 0.6);
+  }
+
+  .floating-objects div:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+  }
+
+  .floating-objects div:nth-child(2) {
+    top: 30%;
+    left: 50%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+  }
+
+  .floating-objects div:nth-child(3) {
+    top: 70%;
+    left: 80%;
+    animation-duration: 18s;
+    animation-delay: 6s;
+  }
+
+  .floating-objects div:nth-child(4) {
+    top: 0%;
+    left: 10%;
+    animation-duration: 20s;
+    animation-delay: 9s;
+  }
+
+  .floating-objects div:nth-child(5) {
+    top: 15%;
+    left: 70%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+  }
+
+  .floating-objects div:nth-child(6) {
+    top: 50%;
+    left: 30%;
+    animation-duration: 16s;
+    animation-delay: 4s;
+  }
+
+  .floating-objects div:nth-child(7) {
+    top: 80%;
+    left: 40%;
+    animation-duration: 19s;
+    animation-delay: 7s;
+  }
+
+  .floating-objects div:nth-child(8) {
+    top: 25%;
+    left: 90%;
+    animation-duration: 22s;
+    animation-delay: 5s;
+  }
+
+  .floating-objects div:nth-child(9) {
+    top: 5%;
+    left: 60%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+  }
+
+  .floating-objects div:nth-child(10) {
+    top: 40%;
+    left: 10%;
+    animation-duration: 17s;
+    animation-delay: 8s;
+  }
+
+  .floating-objects div:nth-child(11) {
+    top: 60%;
+    left: 75%;
+    animation-duration: 21s;
+    animation-delay: 3s;
+  }
+
+  .floating-objects div:nth-child(12) {
+    top: 90%;
+    left: 5%;
+    animation-duration: 24s;
+    animation-delay: 6s;
+  }
+
+  .floating-objects div:nth-child(13) {
+    top: 35%;
+    left: 65%;
+    animation-duration: 18s;
+    animation-delay: 4s;
+  }
+
+  .floating-objects div:nth-child(14) {
+    top: 75%;
+    left: 25%;
+    animation-duration: 20s;
+    animation-delay: 7s;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateZ(0) translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateZ(200px) translateY(-50px) rotate(180deg);
+    }
+    100% {
+      transform: translateZ(0) translateY(0) rotate(360deg);
+    }
+  }
   /* Animation keyframes to rotate the layers */
   @keyframes rotateBg {
     from {
