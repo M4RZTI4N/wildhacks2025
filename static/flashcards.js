@@ -67,6 +67,9 @@ var generate_flaschards = function(cards) {
     if (flipBtn) {
         flipBtn.addEventListener("click", flipCard);
     }
+
+    
+    
     // // const outputElement = document.getElementById('output');
     // if (outputElement) {
     //     outputElement.innerHTML = "Flashcards loaded. Click 'Generate' to start!";

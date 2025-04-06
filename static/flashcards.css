@@ -3,7 +3,14 @@
   font-size: 32px;
   margin-bottom: 15px;
 }
-
+.exit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
 .create-btn {
   /* background: #68f27a; */
 
@@ -19,7 +26,7 @@
 }
 
 .create-btn:hover {
-  /* background: #08a513; */
+  background: #08a513;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -35,7 +42,7 @@
 }
 
 .nav-btn {
-  /* background: #a8ffb2; */
+  background: #a8ffb2;
   background: linear-gradient(45deg, #a8ffac, #f2f2f2);
   border: none;
   border-radius: 8px;
@@ -43,25 +50,25 @@
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
-}
+} 
 
 .nav-btn:hover {
-  /* background: #7aad65; */
+  background: #7aad65;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 
 
- /* body{ */
-  /* font-family: Arial, sans-serif;
+ body{ 
+  font-family: Poppins, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f4f4f9;
-} */
+  /* background-color: #f4f4f9; */
+}
 #flashcards-container{
   display:none;
 }

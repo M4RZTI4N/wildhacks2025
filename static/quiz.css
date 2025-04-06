@@ -4,6 +4,15 @@
   margin-bottom: 20px;
 }
 
+.exit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+
 .options-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
