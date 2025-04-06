@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 :root {
   /* Dark mode colors */
   --text-color: #e3e3e3;
