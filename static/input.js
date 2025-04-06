@@ -10,12 +10,13 @@ const chatContainer = document.querySelector(".chat-list");
 const suggestions = document.querySelectorAll(".suggestion");
 const toggleThemeButton = document.querySelector("#theme-toggle-button");
 const deleteChatButton = document.querySelector("#delete-chat-button");
+const deleteDialog = document.querySelector(".delete-storage");
+const startNewConvo = document.querySelector(".new-convo");
+const continueConvo = document.querySelector(".continue-convo")
 // State variables
 let userMessage = null;
 let isResponseGenerating = false;
-// API configuration
-const API_KEY = "PASTE-YOUR-API-KEY"; // Your API key here
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
 // Load theme and chat data from local storage on page load
 const loadDataFromLocalstorage = () => {
   const savedChats = localStorage.getItem("saved-chats");
@@ -37,7 +38,7 @@ const createMessageElement = (content, ...classes) => {
 }
 // Show typing effect by displaying words one by one
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
-  const words = marked.parse(text).split(' ');
+  const words = text.split(' ');
   let currentWordIndex = 0;
   const typingInterval = setInterval(() => {
     // Append each word to the text element with a space
@@ -115,34 +116,39 @@ const handleOutgoingChat = () => {
   outgoingMessageDiv.querySelector(".text").innerText = userMessage;
   chatContainer.appendChild(outgoingMessageDiv);
   
-//   typingForm.reset(); // Clear input field
-//   document.body.classList.add("hide-header");
-//   chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
-//   setTimeout(showLoadingAnimation, 500); // Show loading animation after a delay
-// }
+  typingForm.reset(); // Clear input field
+  document.body.classList.add("hide-header");
+  chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
+  setTimeout(showLoadingAnimation, 500); // Show loading animation after a delay
+}
 // Toggle between light and dark themes
 toggleThemeButton.addEventListener("click", () => {
   const isLightMode = document.body.classList.toggle("light_mode");
   localStorage.setItem("themeColor", isLightMode ? "light_mode" : "dark_mode");
   toggleThemeButton.innerText = isLightMode ? "dark_mode" : "light_mode";
 });
-// // Delete all chats from local storage when button is clicked
-// deleteChatButton.addEventListener("click", () => {
-//   if (confirm("Are you sure you want to delete all the chats?")) {
-//     localStorage.removeItem("saved-chats");
-//     loadDataFromLocalstorage();
-//   }
-// });
-// // Set userMessage and handle outgoing chat when a suggestion is clicked
-// suggestions.forEach(suggestion => {
-//   suggestion.addEventListener("click", () => {
-//     userMessage = suggestion.querySelector(".text").innerText;
-//     handleOutgoingChat();
-//   });
-// });
-// // Prevent default form submission and handle outgoing chat
-// typingForm.addEventListener("submit", (e) => {
-//   e.preventDefault(); 
-//   handleOutgoingChat();
-// });
-// loadDataFromLocalstorage();
+// Delete all chats from local storage when button is clicked
+deleteChatButton.addEventListener("click", () => {
+    deleteDialog.style.display = "grid"
+});
+startNewConvo.addEventListener("click",()=>{
+    deleteDialog.style.display = "none";
+    localStorage.removeItem("saved-chats");
+    loadDataFromLocalstorage();
+});
+continueConvo.addEventListener("click",()=>{
+    deleteDialog.style.display = "none";
+})
+// Set userMessage and handle outgoing chat when a suggestion is clicked
+suggestions.forEach(suggestion => {
+  suggestion.addEventListener("click", () => {
+    userMessage = suggestion.querySelector(".text").innerText;
+    handleOutgoingChat();
+  });
+});
+// Prevent default form submission and handle outgoing chat
+typingForm.addEventListener("submit", (e) => {
+  e.preventDefault(); 
+  handleOutgoingChat();
+});
+loadDataFromLocalstorage();
