@@ -29,23 +29,24 @@ let isResponseGenerating = false;
 
 
 createFlashcards.onclick = () =>{
-    flashcardContainer.style.display = "block"
+    
     socket.emit("user-flashcards")
 }
 socket.on("flashcards-response",(data)=>{
-    let new_data = data.split('\n').slice(0,-1)
+    let new_data = data.split('\n').slice(0,-1).filter((s)=>s!="");
     let flashcards = []
     for(let i = 0; i < new_data.length; i+=2){
         let new_card = {
             "side1":"",
             "side2":""
         }
-        new_card.side1 = new_data[i]
-        new_card.side2 = new_data[i+1]
+        new_card.front = new_data[i]
+        new_card.back = new_data[i+1]
         flashcards.push(new_card)
     }
     console.log(new_data)
     console.log(flashcards)
+    generate_flaschards(flashcards)
 })
 const promptSetup = ()=>{
     topicInput.style.display = "block";
